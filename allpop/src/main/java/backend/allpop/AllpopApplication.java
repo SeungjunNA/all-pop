@@ -9,5 +9,4 @@ public class AllpopApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AllpopApplication.class, args);
 	}
-
 }

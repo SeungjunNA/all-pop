@@ -1,25 +1,20 @@
 import './App.css';
-import {useEffect, useState} from 'react';
+import Header from './components/Header';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import MapPage from './pages/MapPage';
+import SignPage from './pages/SignPage';
+import { Route } from 'react-router-dom';
 
-function App(){
-  const [message, setMessage] = useState([]);
+function App() {
+  return (
+    <div className="App">
+      <Header></Header>
 
-  useEffect(() => {
-    fetch("hello")
-      .then((response) => {
-        return response.json();
-      })
-      .then(function (data) {
-        setMessage(data);
-      });
-  }, []);
-
-  return(
-    <div>
-        <div>시작</div>
-        <ul>
-            {message.map((text, index) => <li key={`${index}-${text}`}>{text}</li>)}
-        </ul>
+      <Route path="/" exact={true} component={HomePage}></Route>
+      <Route path="/login" exact={true} component={LoginPage}></Route>
+      <Route path="/map" exact={true} component={MapPage}></Route>
+      <Route path="/sign" exact={true} component={SignPage}></Route>
     </div>
   );
 }

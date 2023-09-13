@@ -1,9 +1,6 @@
 package backend.allpop.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,18 +10,19 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long idx;
+    @Column(unique = true)
     String id;
     String password;
-    String username;
-    String address;
+//    String username;
+//    String address;
     Role role;
     @Builder
-    public Member(Long idx, String id, String password, String username, String address){
+    public Member(Long idx, String id, String password){
         this.idx = idx;
         this.id = id;
         this.password = password;
-        this.username = username;
-        this.address = address;
+//        this.username = username;
+//        this.address = address;
         role = Role.USER;
     }
 }
