@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'; // react-router-dom을 사용하여 페이지 이동
 import '../css/LoginPage.css';
+import axios from 'axios';
 
 function LoginPage() {
   const [id, setId] = useState('');
@@ -9,6 +10,20 @@ function LoginPage() {
 
   const handleLogin = () => {
     // 로그인 로직을 여기에 구현
+    const memberDto = {
+              id: id,
+              password: password,
+         };
+         axios.post('http://localhost:8080/login', memberDto)
+               .then(response => {
+                 console.log(response.data); // Handle the response from the backend
+                 // If login is successful, redirect to the next page (e.g., home)
+                 history.push('/home');
+               })
+               .catch(error => {
+                 console.error(error); // Handle any errors that occur during login
+                 alert('로그인 실패');
+               });
     console.log('로그인 버튼 클릭 - 아이디:', id, '비밀번호:', password);
     // 로그인 로직을 처리한 후 다음 페이지로 이동하도록 구현
   };

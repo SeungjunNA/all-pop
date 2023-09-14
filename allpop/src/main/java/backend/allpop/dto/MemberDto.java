@@ -1,6 +1,7 @@
 package backend.allpop.dto;
 
 import backend.allpop.entity.Member;
+import backend.allpop.entity.Role;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -3,9 +3,11 @@ package backend.allpop.entity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Data
+@RequiredArgsConstructor
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,14 +17,14 @@ public class Member {
     String password;
 //    String username;
 //    String address;
-    Role role;
+//    Role role;
     @Builder
-    public Member(Long idx, String id, String password){
+    public Member(Long idx, String id, String password) {
         this.idx = idx;
         this.id = id;
         this.password = password;
 //        this.username = username;
 //        this.address = address;
-        role = Role.USER;
+//        role = Role.USER;
     }
 }

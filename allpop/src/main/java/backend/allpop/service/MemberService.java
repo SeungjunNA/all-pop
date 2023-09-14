@@ -15,7 +15,6 @@ public class MemberService {
 
     public Member signup(MemberDto memberDto){
         Member member = memberDto.toEntity();
-        System.out.println("memberservice");
         return  memberRepository.save(member);
     }
 //    public boolean idCheck(String id){
