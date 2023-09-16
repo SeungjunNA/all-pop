@@ -18,7 +18,7 @@ function LoginPage() {
                .then(response => {
                  console.log(response.data); // Handle the response from the backend
                  // If login is successful, redirect to the next page (e.g., home)
-                 history.push('/home');
+                 history.push('/');
                })
                .catch(error => {
                  console.error(error); // Handle any errors that occur during login
