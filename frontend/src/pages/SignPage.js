@@ -7,7 +7,7 @@ function SignPage() {
   const [name, setName] = useState(''); //아이디말고 이름변수 새로 생성
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
-//  const [confirmPassword, setConfirmPassword] = useState('');
+  //  const [confirmPassword, setConfirmPassword] = useState('');
   const history = useHistory();
 
   const goLogin = () => {
@@ -16,24 +16,25 @@ function SignPage() {
 
   const handleSignup = () => {
     // 회원가입 로직을 여기에 구현
-//    if (password !== confirmPassword) {
-//            alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
-//            return;
-//        }
-        const memberDto = {
-            id: id,
-            password: password,
-            name: name,
-        };
-     axios.post('http://localhost:8080/signup', memberDto)
-         .then(response => {
-           console.log(response.data);
-           alert('회원가입이 완료되었습니다.');
-           history.push('/login');
-         })
-        .catch(error => {
-          alert('이미 존재하는 아이디');
-        });
+    //    if (password !== confirmPassword) {
+    //            alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+    //            return;
+    //        }
+    const memberDto = {
+      id: id,
+      password: password,
+      name: name,
+    };
+    axios
+      .post('http://localhost:8080/signup', memberDto)
+      .then((response) => {
+        console.log(response.data);
+        alert('회원가입이 완료되었습니다.');
+        history.push('/login');
+      })
+      .catch((error) => {
+        alert('이미 존재하는 아이디');
+      });
 
     console.log('회원가입 버튼 클릭 - 아이디:', id, '비밀번호:', password);
   };
@@ -87,31 +88,6 @@ function SignPage() {
         </form>
       </div>
     </div>
-
-    // <div classNameName="signup-container">
-    //   <div classNameName="signup-form">
-    //     <h2>회원가입</h2>
-    //     <input
-    //       type="text"
-    //       placeholder="아이디"
-    //       value={id}
-    //       onChange={(e) => setId(e.target.value)}
-    //     />
-    //     <input
-    //       type="password"
-    //       placeholder="비밀번호"
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //     />
-    //     <input
-    //       type="password"
-    //       placeholder="비밀번호 확인"
-    //       value={confirmPassword}
-    //       onChange={(e) => setConfirmPassword(e.target.value)}
-    //     />
-    //     <button onClick={handleSignup}>회원가입</button>
-    //   </div>
-    // </div>
   );
 }
 

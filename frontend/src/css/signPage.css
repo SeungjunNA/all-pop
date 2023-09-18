@@ -3,12 +3,15 @@
 }
 
 .sign-container {
+  width: 100%;
   height: 100%;
-  display: grid;
+
+  display: flex;
+  flex-direction: row;
   place-items: center;
   margin: 0;
-  padding: 0 20px;
-  background: #3284ce;
+  padding: 0;
+
   font-family: 'Euclid Circular A';
 }
 
@@ -21,23 +24,6 @@ input {
   font-family: inherit;
   font-size: 16px;
   outline: none;
-}
-
-@keyframes clouds {
-  100% {
-    translate: -50vw -55%;
-    scale: 1 1.1;
-  }
-}
-
-.clouds {
-  position: fixed;
-  top: 30%;
-  left: 0;
-  width: 3000px;
-  height: 1500px;
-  translate: 0% -50%;
-  animation: clouds 15s infinite alternate linear;
 }
 
 .signup {
@@ -147,4 +133,12 @@ input:focus {
 .signup p > span:hover {
   color: #216ce7;
   cursor: pointer;
+}
+
+.sign-background {
+  width: 100vw;
+  height: 100vh;
+  background-color: #2b3442;
+  margin: 0;
+  padding: 0;
 }

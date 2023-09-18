@@ -15,17 +15,22 @@ public class BoardService {
     private BoardRepository boardRepository;
 
     public byte[] getImageData(Long id){
-        System.out.println("이미지 befoe");
         Optional<Board> optionalBoard = boardRepository.findById(id);
-        System.out.println("이미지 after");
+
         if(optionalBoard.isPresent()){
-            System.out.println("이미지 suc");
             return Base64.getDecoder().decode(optionalBoard.get().getImage());
         }else{
-            System.out.println("이미지 fail");
             throw new RuntimeException("이미지를 찾을 수 없음");
         }
     }
+//    public Board getImageData(Long id){
+//        Optional<Board> optionalBoard = boardRepository.findById(id);
+//        if(optionalBoard.isPresent()){
+//            return optionalBoard.get();
+//        }else{
+//            throw new RuntimeException("이미지를 찾을 수 없음");
+//        }
+//    }
 
     public void saveImage(byte[] imageData){
         try {
