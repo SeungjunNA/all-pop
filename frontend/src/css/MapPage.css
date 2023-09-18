@@ -1,0 +1,15 @@
+.map-page-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  gap: 300px;
+}
+.list-container {
+  width: 400px; /* 원하는 너비 설정 */
+  height: 700px;
+  overflow-y: auto; /* Y 축 스크롤을 활성화하여 필요할 때 스크롤 표시 */
+}
