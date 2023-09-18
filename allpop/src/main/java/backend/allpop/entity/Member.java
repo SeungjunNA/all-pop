@@ -15,15 +15,15 @@ public class Member {
     @Column(unique = true)
     String id;
     String password;
-//    String username;
+    String name;
 //    String address;
 //    Role role;
     @Builder
-    public Member(Long idx, String id, String password) {
+    public Member(Long idx, String id, String password, String name) {
         this.idx = idx;
         this.id = id;
         this.password = password;
-//        this.username = username;
+        this.name = name;
 //        this.address = address;
 //        role = Role.USER;
     }

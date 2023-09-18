@@ -11,9 +11,5 @@
         <module name="allpop.allpop.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="allpop.allpop.main~1" target="17" />
-      <module name="allpop.allpop.test~1" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>

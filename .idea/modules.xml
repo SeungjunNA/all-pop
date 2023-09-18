@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/allpop.iml" filepath="$PROJECT_DIR$/.idea/allpop.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/allpop.allpop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/allpop.allpop.main.iml" />
     </modules>
   </component>
 </project>

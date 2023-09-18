@@ -10,7 +10,7 @@ public class MemberDto {
     Long idx;
     String id;
     String password;
-//    String username;
+    String name;
 //    String address;
 
     public Member toEntity(){
@@ -18,7 +18,7 @@ public class MemberDto {
                 .idx(idx)
                 .id(id)
                 .password(password)
-//                .username(username)
+                .name(name)
 //                .address(address)
                 .build();
     }
