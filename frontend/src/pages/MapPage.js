@@ -1,10 +1,12 @@
 /*global kakao*/
-import React, { useEffect } from 'react';
+import React, { useEffect} from 'react';
 import '../css/MapPage.css';
 import PopupStoreState from '../constant/Popupstores';
 import Header from '../components/Header';
 
 const MapPage = () => {
+    const { popupStores, setPopupStores } = PopupStoreState();
+
   useEffect(() => {
     var container = document.getElementById('map');
     var options = {
@@ -23,7 +25,6 @@ const MapPage = () => {
     marker.setMap(map);
   }, []);
 
-  const { popupStores, setPopupStores } = PopupStoreState();
   // 좋아요 기능
   const handleLike = (storeId) => {
     setPopupStores((prevStores) =>
@@ -46,7 +47,7 @@ const MapPage = () => {
             .map((store) => (
               <div className="popup-store">
                 <div className="popup-store-img">
-                  <img src={store.imageUrl} alt="" />
+                  <img src={`http://localhost:8080?id=${store.id}`} alt="-" />
                 </div>
                 <div key={store.id} className="popup-store-item">
                   <h3>{store.title}</h3>

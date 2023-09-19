@@ -12,4 +12,5 @@ public class Board {
     String image;
     String title;
     String location;
+    Long likes;
 }

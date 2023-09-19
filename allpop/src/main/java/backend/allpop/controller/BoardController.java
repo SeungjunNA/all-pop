@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.List;
 
 @Controller
 @CrossOrigin("*")
@@ -30,15 +31,13 @@ public class BoardController {
 
         return new ResponseEntity<>(imageData, headers, HttpStatus.OK);
     }
-//    @GetMapping("/")
-//    public ResponseEntity<Board> home(@RequestParam("id") Long id) {
-//        Board boardData = boardService.getImageData(id);
-//
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.IMAGE_JPEG);
-//
-//        return new ResponseEntity<>(boardData, headers, HttpStatus.OK);
-//    }
+
+    @GetMapping("/boards")
+    public ResponseEntity<List<Board>> getAllBoards(){
+        List<Board> boards = boardService.getAllBoardData();
+
+        return new ResponseEntity<>(boards, HttpStatus.OK);
+    }
 
     @PostMapping("/")
     public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file){

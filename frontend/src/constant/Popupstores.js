@@ -8,121 +8,27 @@ id, imgurl, 이름, 시작일, 종료일, 위치, 좋아요 수
 
 */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function PopupStoreState() {
-  const [popupStores, setPopupStores] = useState([
-    {
-      id: 1,
-      imageUrl:
-        'http://localhost:8080?id=1',
-      storeName: 'Popup Store 1',
-      startDate: '09/20',
-      endDate: '09/30',
-      location: '서울시 강남구',
-      likes: 0,
-    },
-    {
-      id: 2,
-      imageUrl: 'http://localhost:8080?id=2',
-      storeName: 'Popup Store 2',
-      startDate: '10/05',
-      endDate: '10/15',
-      location: '서울시 종로구',
-      likes: 0,
-    },
-    {
-      id: 2,
-      imageUrl: 'URL_2',
-      storeName: 'Popup Store 2',
-      startDate: '10/05',
-      endDate: '10/15',
-      location: '서울시 종로구',
-      likes: 0,
-    },
-    {
-      id: 2,
-      imageUrl: 'URL_2',
-      storeName: 'Popup Store 2',
-      startDate: '10/05',
-      endDate: '10/15',
-      location: '서울시 종로구',
-      likes: 0,
-    },
-    {
-      id: 2,
-      imageUrl: 'URL_2',
-      storeName: 'Popup Store 2',
-      startDate: '10/05',
-      endDate: '10/15',
-      location: '서울시 종로구',
-      likes: 0,
-    },
-    {
-      id: 2,
-      imageUrl: 'URL_2',
-      storeName: 'Popup Store 2',
-      startDate: '10/05',
-      endDate: '10/15',
-      location: '서울시 종로구',
-      likes: 0,
-    },
-    {
-      id: 2,
-      imageUrl: 'URL_2',
-      storeName: 'Popup Store 2',
-      startDate: '10/05',
-      endDate: '10/15',
-      location: '서울시 종로구',
-      likes: 0,
-    },
-    {
-      id: 3,
-      imageUrl: 'URL_2',
-      storeName: 'Popup Store 2',
-      startDate: '10/05',
-      endDate: '10/15',
-      location: '서울시 종로구',
-      likes: 0,
-    },
-    {
-      id: 4,
-      imageUrl: 'URL_2',
-      storeName: 'Popup Store 2',
-      startDate: '10/05',
-      endDate: '10/15',
-      location: '서울시 종로구',
-      likes: 0,
-    },
-    {
-      id: 5,
-      imageUrl: 'URL_2',
-      storeName: 'Popup Store 2',
-      startDate: '10/05',
-      endDate: '10/15',
-      location: '서울시 종로구',
-      likes: 0,
-    },
-    {
-      id: 6,
-      imageUrl: 'URL_2',
-      storeName: 'Popup Store 2',
-      startDate: '10/05',
-      endDate: '10/15',
-      location: '서울시 종로구',
-      likes: 0,
-    },
-    {
-      id: 7,
-      imageUrl: 'URL_2',
-      storeName: 'Popup Store 2',
-      startDate: '10/05',
-      endDate: '10/15',
-      location: '서울시 종로구',
-      likes: 0,
-    },
-    // 추가 팝업스토어 정보 입력
-  ]);
+  const [popupStores, setPopupStores] = useState([]);
+  useEffect(() => {
+      fetchPopupStores();
+    }, []);
+
+  const fetchPopupStores = async () => {
+      try {
+        console.log('00');
+        const response = await axios.get('http://localhost:8080/boards');
+
+        const data = response.data;
+        setPopupStores(data);
+      } catch (error) {
+        console.log('팝업 스토어 정보를 가져오는 중 오류가 발생했습니다:', error);
+      }
+    };
+
 
   return { popupStores, setPopupStores };
 }

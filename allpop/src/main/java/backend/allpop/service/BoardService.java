@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Base64;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,14 +24,10 @@ public class BoardService {
             throw new RuntimeException("이미지를 찾을 수 없음");
         }
     }
-//    public Board getImageData(Long id){
-//        Optional<Board> optionalBoard = boardRepository.findById(id);
-//        if(optionalBoard.isPresent()){
-//            return optionalBoard.get();
-//        }else{
-//            throw new RuntimeException("이미지를 찾을 수 없음");
-//        }
-//    }
+
+    public List<Board> getAllBoardData(){
+        return boardRepository.findAll();
+    }
 
     public void saveImage(byte[] imageData){
         try {
