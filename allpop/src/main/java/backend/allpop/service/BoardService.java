@@ -42,4 +42,26 @@ public class BoardService {
             System.out.println("이미지 저장 실패 : " + e.getMessage());
         }
     }
+
+    public void boardLike(Long id){
+        Optional<Board> optionalBoard = boardRepository.findById(id);
+
+        if(optionalBoard.isPresent()) {
+            Board board = optionalBoard.get();
+            board.setLikes(board.getLikes()+1);
+            boardRepository.save(board);
+        }else{
+          throw new RuntimeException("없는 게시물");
+        }
+    }
+
+    public Board getBoardById(Long id){
+        Optional<Board> optionalBoard = boardRepository.findById(id);
+        if(optionalBoard.isPresent()){
+            Board board = optionalBoard.get();
+            return board;
+        }else{
+            return new Board();
+        }
+    }
 }

@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @CrossOrigin("*")
@@ -53,5 +54,25 @@ public class BoardController {
 
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("이미지 저장 실패 : " +  e.getMessage());
         }
+    }
+
+    @GetMapping("/likes")
+    public ResponseEntity<Board> getBoardLikes(@RequestParam("id") Long id){
+        Board board = boardService.getBoardById(id);
+        if(board!=null){
+            return ResponseEntity.ok(board);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/likes")
+    public ResponseEntity<String> likes(@RequestParam("id") Long id) {
+        try {
+            boardService.boardLike(id);
+            return ResponseEntity.ok("좋아요");
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("좋아요처리 실패"+e.getMessage());
+        }
+
     }
 }

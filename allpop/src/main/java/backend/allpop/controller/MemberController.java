@@ -54,7 +54,6 @@ public class MemberController {
             }
             return ResponseEntity.ok("로그인 성공");
         }catch (Exception e){
-            System.out.println(5);
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패");
         }

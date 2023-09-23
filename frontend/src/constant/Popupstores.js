@@ -19,7 +19,6 @@ function PopupStoreState() {
 
   const fetchPopupStores = async () => {
       try {
-        console.log('00');
         const response = await axios.get('http://localhost:8080/boards');
 
         const data = response.data;
